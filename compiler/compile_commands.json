@@ -1,0 +1,38 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-xc",
+      "-std=c99",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/lexer.o",
+      "src/lexer.c"
+    ],
+    "directory": "/Users/daniel/Projects/bbl/compiler",
+    "file": "/Users/daniel/Projects/bbl/compiler/src/lexer.c",
+    "output": "/Users/daniel/Projects/bbl/compiler/obj/lexer.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-xc",
+      "-std=c99",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "/Users/daniel/Projects/bbl/compiler",
+    "file": "/Users/daniel/Projects/bbl/compiler/src/main.c",
+    "output": "/Users/daniel/Projects/bbl/compiler/obj/main.o"
+  }
+]
