@@ -1,5 +1,5 @@
 bin
 obj
-test.bbl
+compiler/*.bbl
 .cache
 .cache/*

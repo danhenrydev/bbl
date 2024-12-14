@@ -1,0 +1,104 @@
+// Top-level variable declarations and statements
+int globalVar;
+globalVar = 42;
+
+// Function that uses arithmetic operators
+int arithmetic(int a, int b) {
+    int result;
+    result = a + b;     // addition
+    result = result - a; // subtraction
+    result = result * b; // multiplication
+    result = result / a; // division
+    result = result % 2; // modulo
+    return result;
+}
+
+// Function that tests comparison operators
+int compare(int x, int y) {
+    int result;
+    
+    if (x == y) {       // equality
+        result = 1;
+    } else {
+        result = 0;
+    }
+    
+    if (x != y) {       // inequality
+        result = result + 1;
+    }
+    
+    if (x < y) {        // less than
+        result = result + 1;
+    }
+    
+    if (x > y) {        // greater than
+        result = result + 1;
+    }
+    
+    if (x <= y) {       // less than or equal
+        result = result + 1;
+    }
+    
+    if (x >= y) {       // greater than or equal
+        result = result + 1;
+    }
+    
+    return result;
+}
+
+// Function that tests logical operators
+int logical(int a, int b) {
+    int result;
+    result = 0;
+    
+    if (!a) {              // logical NOT
+        result = result + 1;
+    }
+    
+    if (a && b) {          // logical AND
+        result = result + 1;
+    }
+    
+    if (a || b) {          // logical OR
+        result = result + 1;
+    }
+    
+    return result;
+}
+
+// Function demonstrating while loop and compound statements
+int count(int n) {
+    int i;
+    int sum;
+    
+    i = 0;
+    sum = 0;
+    
+    while (i < n) {
+        sum = sum + i;
+        i = i + 1;
+    }
+    
+    return sum;
+}
+
+// Void function to test void returns
+void doNothing(int unused) {
+    if (unused > 0) {
+        return;
+    } else {
+        return;
+    }
+}
+
+// Program entry point - exercises all features
+int test1;
+int test2;
+int test3;
+int test4;
+
+test1 = arithmetic(5, 3);
+test2 = compare(10, 20);
+test3 = logical(1, 0);
+test4 = count(5);
+doNothing(test1);
