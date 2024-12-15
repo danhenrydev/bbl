@@ -1,7 +1,25 @@
 [
   {
     "arguments": [
-      "/usr/bin/clang",
+      "/opt/homebrew/opt/llvm/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-xc",
+      "-std=c99",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/common.o",
+      "src/common.c"
+    ],
+    "directory": "/Users/daniel/Projects/bbl/compiler",
+    "file": "/Users/daniel/Projects/bbl/compiler/src/common.c",
+    "output": "/Users/daniel/Projects/bbl/compiler/obj/common.o"
+  },
+  {
+    "arguments": [
+      "/opt/homebrew/opt/llvm/bin/clang",
       "-Wall",
       "-Wextra",
       "-g",
@@ -19,7 +37,7 @@
   },
   {
     "arguments": [
-      "/usr/bin/clang",
+      "/opt/homebrew/opt/llvm/bin/clang",
       "-Wall",
       "-Wextra",
       "-g",
@@ -34,5 +52,23 @@
     "directory": "/Users/daniel/Projects/bbl/compiler",
     "file": "/Users/daniel/Projects/bbl/compiler/src/main.c",
     "output": "/Users/daniel/Projects/bbl/compiler/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/opt/homebrew/opt/llvm/bin/clang",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-xc",
+      "-std=c99",
+      "-I./include",
+      "-c",
+      "-o",
+      "obj/error.o",
+      "src/error.c"
+    ],
+    "directory": "/Users/daniel/Projects/bbl/compiler",
+    "file": "/Users/daniel/Projects/bbl/compiler/src/error.c",
+    "output": "/Users/daniel/Projects/bbl/compiler/obj/error.o"
   }
 ]

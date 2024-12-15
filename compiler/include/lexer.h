@@ -1,3 +1,6 @@
+#ifndef LEXER_H
+#define LEXER_H
+
 #include <stdbool.h>
 #include <stddef.h>
 
@@ -234,3 +237,5 @@ char *bbc_lexer_get_token_name(bbc_lexer_token_t token);
  * // Token {type: TOKEN_IDENTIFIER, text: "x", pos: {1, 1}}
  */
 void bbc_lexer_debug_dump_token(bbc_lexer_token_t *token);
+
+#endif // LEXER_H

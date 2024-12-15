@@ -72,6 +72,10 @@ void bbc_lexer_trim(bbc_lexer_t *lexer) {
   bool recurse = false;
 
   while(isspace(lexer->content[lexer->cursor]) && bbc_lexer_cursor_safe(lexer)) {
+    if(lexer->content[lexer->cursor] == '\n') {
+      lexer->pos.row++;
+      lexer->pos.col = 0;
+    }
     bbc_lexer_cursor_inc(lexer);
     recurse = true;
   }
@@ -149,6 +153,9 @@ void bbc_lexer_consume_number(bbc_lexer_t *lexer, bbc_lexer_token_t *token) {
 
 void bbc_lexer_consume_symbol(bbc_lexer_t *lexer, bbc_lexer_token_t *token) {
 
+
+  token->pos = lexer->pos;
+  token->text = &lexer->content[lexer->cursor];
 
   char symbols[] = {
     '(',
@@ -235,7 +242,8 @@ void bbc_lexer_consume_symbol(bbc_lexer_t *lexer, bbc_lexer_token_t *token) {
           break;
           case '&':
             if(lexer->content[lexer->cursor + 1] != '&') {
-              bbc_error_generic(ERROR_ERROR, "Use of a single '&' is invalid");
+              bbc_error_lexer(ERROR_ERROR, lexer, token, "Use of a single '&' is invalid");
+              exit(1);
             }
             token->type = TOKEN_AND_DOUBLE;
             token->text_length = 2;
@@ -243,7 +251,8 @@ void bbc_lexer_consume_symbol(bbc_lexer_t *lexer, bbc_lexer_token_t *token) {
           break;
           case '|':
             if(lexer->content[lexer->cursor + 1] != '|') {
-              bbc_error_generic(ERROR_ERROR, "Use of a single '|' is invalid");
+              bbc_error_lexer(ERROR_ERROR, lexer, token, "Use of a single '|' is invalid");
+              exit(1);
             }
             token->type = TOKEN_BAR_DOUBLE;
             token->text_length = 2;
@@ -274,8 +283,6 @@ void bbc_lexer_consume_symbol(bbc_lexer_t *lexer, bbc_lexer_token_t *token) {
       }
     }
   }
-  token->pos = lexer->pos;
-  token->text = &lexer->content[lexer->cursor];
 }
 
 char *bbc_lexer_get_token_name(bbc_lexer_token_t token) {
